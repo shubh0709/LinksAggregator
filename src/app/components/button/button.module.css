@@ -1,0 +1,23 @@
+.button {
+  background-color: #fdc435;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.5rem 1.5rem;
+  align-items: center;
+  max-width: 100%;
+  align-self: flex-start;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.buttonText {
+  font-family: var(--roboto-font);
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  max-width: 100%;
+}

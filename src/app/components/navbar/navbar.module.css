@@ -1,0 +1,135 @@
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  z-index: 5;
+  position: relative;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.075);
+  position: sticky;
+  background-color: lightskyblue;
+  /* z-index: -2; */
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  align-self: flex-end;
+  /* background-color: greenyellow; */
+}
+
+.navOptions {
+  /* background-color: red; */
+  width: 32%;
+  display: flex;
+  /* flex: 1; */
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navIconCont {
+  display: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.navtext {
+  color: #25282b;
+  font-family: var(--raleway-font);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 3rem; /* 155.556% */
+}
+
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
+  /* navbar changes */
+
+  .navbar {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    right: 0;
+    justify-content: flex-start;
+    background-color: #e8ecf4;
+    flex-direction: column;
+
+    /* to get the tranisition  */
+    transform: translateX(100%);
+    transition: all 0.5s linear;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .navIconCont {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-self: flex-end;
+    z-index: 5;
+  }
+
+  .active .navbar {
+    transform: translateX(0%);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .menuIcon {
+    margin-left: auto;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .active .navIconCont .menuIcon {
+    display: none;
+  }
+
+  .active .navIconCont .closeIcon {
+    display: block;
+    margin-left: auto;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .closeIcon {
+    display: none;
+  }
+
+  .navOptions {
+    display: none;
+    /* visibility: hidden; */
+    margin-top: 3.2rem;
+    flex-direction: column;
+    align-items: center;
+    /* flex: 1; */
+    height: 70vh;
+    background-color: green;
+  }
+
+  .showNavOptions {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 640px) {
+}
+
+@media (max-width: 480px) {
+}
