@@ -1,11 +1,8 @@
 "use client";
 import { useState } from "react";
-import styles from "./register.module.css";
-import axios from "axios";
+import styles from "./auth.module.css";
 
 export default function Register() {
-  console.log("server url is : ", process.env.NEXT_PUBLIC_SERVER_URL);
-
   const [state, setState] = useState({
     name: "",
     email: "",
@@ -27,36 +24,7 @@ export default function Register() {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setState({ ...state, buttonText: "Registering" });
-    try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/app/register`,
-        {
-          name,
-          email,
-          password,
-        }
-      );
-
-      setState({
-        ...state,
-        name: "",
-        email: "",
-        password: "",
-        buttonText: "Submitted",
-        success: response.data.message,
-      });
-    } catch (error) {
-      console.log(error);
-      setState({
-        ...state,
-        buttonText: "Register",
-        error: error.response.data.error,
-      });
-    }
-  };
+  const handleSubmit = () => {};
 
   return (
     <div className={styles.login}>
