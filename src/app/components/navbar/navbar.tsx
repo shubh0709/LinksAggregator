@@ -3,17 +3,35 @@ import styles from "./navbar.module.css";
 import menuIcon from "../../../../public/svgs/menuIcon.svg";
 import close from "../../../../public/svgs/close.svg";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { userAuthenticatedData } from "@/app/utils/util";
 
 export default function Navbar() {
   const [showNav, setShowNav] = useState(false);
-
+  const [showAuthOptions, setShowAuthOptions] = useState(false);
+  console.log("declarations");
   const toggle = () => {
     setShowNav(!showNav);
   };
 
+  useEffect(() => {
+    console.log("use effect");
+    setShowAuthOptions(true);
+
+    return () => {
+      console.log("unmounting");
+    };
+  }, []);
+
+  const renderFunction = () => {
+    console.log("render function");
+
+    return <></>;
+  };
+
   return (
     <div className={`${styles.header} ${showNav && styles.active}`}>
+      {renderFunction()}
       <div className={styles.navIconCont} onClick={toggle}>
         <Image src={menuIcon} alt={"menu"} className={styles.menuIcon} />
         <Image src={close} alt={"close"} className={styles.closeIcon} />
@@ -25,12 +43,35 @@ export default function Navbar() {
           <a className={styles.navtext} href={"/"}>
             {"Home"}
           </a>
-          <a className={styles.navtext} href={"/login"}>
-            {"login"}
-          </a>
-          <a className={styles.navtext} href={"/register"}>
-            {"register"}
-          </a>
+          {showAuthOptions &&
+            (!userAuthenticatedData() ? (
+              <>
+                <a className={styles.navtext} href={"/login"}>
+                  {"login"}
+                </a>
+                <a className={styles.navtext} href={"/register"}>
+                  {"register"}
+                </a>
+              </>
+            ) : (
+              <>
+                {userAuthenticatedData().role === "subscriber" && (
+                  <a className={styles.navtext} href={"/subscriber"}>
+                    {"subscriber"}
+                  </a>
+                )}
+
+                {userAuthenticatedData().role === "admin" && (
+                  <a className={styles.navtext} href={"/admin"}>
+                    {"admin"}
+                  </a>
+                )}
+
+                <a className={styles.navtext} href={"/logout"}>
+                  {"logout"}
+                </a>
+              </>
+            ))}
         </div>
       </div>
     </div>

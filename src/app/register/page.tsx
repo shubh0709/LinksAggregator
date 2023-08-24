@@ -1,10 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./register.module.css";
 import axios from "axios";
+import { userAuthenticatedData } from "../utils/util";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
+  const router = useRouter();
   console.log("server url is : ", process.env.NEXT_PUBLIC_SERVER_URL);
+
+  useEffect(() => {
+    !!userAuthenticatedData() && router.push("/");
+  }, []);
 
   const [state, setState] = useState({
     name: "",
@@ -39,15 +46,6 @@ export default function Register() {
           password,
         }
       );
-
-      setState({
-        ...state,
-        name: "",
-        email: "",
-        password: "",
-        buttonText: "Submitted",
-        success: response.data.message,
-      });
     } catch (error) {
       console.log(error);
       setState({
