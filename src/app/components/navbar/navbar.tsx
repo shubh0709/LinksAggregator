@@ -9,29 +9,22 @@ import { userAuthenticatedData } from "@/app/utils/util";
 export default function Navbar() {
   const [showNav, setShowNav] = useState(false);
   const [showAuthOptions, setShowAuthOptions] = useState(false);
-  console.log("declarations");
   const toggle = () => {
     setShowNav(!showNav);
   };
 
   useEffect(() => {
-    console.log("use effect");
     setShowAuthOptions(true);
 
-    return () => {
-      console.log("unmounting");
-    };
+    return () => {};
   }, []);
 
   const renderFunction = () => {
-    console.log("render function");
-
     return <></>;
   };
 
   return (
     <div className={`${styles.header} ${showNav && styles.active}`}>
-      {renderFunction()}
       <div className={styles.navIconCont} onClick={toggle}>
         <Image src={menuIcon} alt={"menu"} className={styles.menuIcon} />
         <Image src={close} alt={"close"} className={styles.closeIcon} />

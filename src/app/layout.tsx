@@ -1,13 +1,5 @@
-"use client";
 import "./globals.css";
-import type { Metadata } from "next";
 import Navbar from "./components/navbar/navbar";
-import { Inter, Roboto, Poppins, Raleway, Nunito } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
-const roboto = Roboto({ subsets: ["latin"], weight: "400" });
-const nunito = Nunito({ subsets: ["latin"] });
-const raleway = Raleway({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -29,14 +21,6 @@ export default function RootLayout({
       </head>
       <body className="animate__animated">
         <>
-          <style jsx global>{`
-            :root {
-              --raleway-font: ${raleway.style.fontFamily};
-              --nunito-font: ${nunito.style.fontFamily};
-              --roboto-font: ${roboto.style.fontFamily};
-              --inter-font: ${inter.style.fontFamily};
-            }
-          `}</style>
           <Navbar />
           <div className="bodyContainer">{children}</div>
         </>

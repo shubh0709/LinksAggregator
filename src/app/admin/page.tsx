@@ -1,16 +1,11 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { userAuthenticatedData } from "../utils/util";
+import Link from "next/link";
 
-export default function Register() {
-  const router = useRouter();
+const Admin = () => (
+  <>
+    <h1>Admin Dashboard</h1>
+    <br />
+    <Link href="/admin/create">Create category</Link>
+  </>
+);
 
-  useEffect(() => {
-    userAuthenticatedData() &&
-      userAuthenticatedData().role !== "admin" &&
-      router.push("/");
-  }, []);
-
-  return <div>Admin</div>;
-}
+export default Admin;

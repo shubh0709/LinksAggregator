@@ -1,4 +1,10 @@
 @import "animate.css";
+:root {
+  --raleway-font: initial; /* This is just a fallback value */
+  --nunito-font: initial;
+  --roboto-font: initial;
+  --inter-font: initial;
+}
 
 * {
   box-sizing: border-box;
@@ -15,7 +21,6 @@ body {
   /* background-color: red; */
   max-width: 100%;
   overflow-x: hidden;
-
 }
 
 button {

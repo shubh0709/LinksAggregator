@@ -1,5 +1,4 @@
 import cookie from "js-cookie";
-import router from "next/router";
 
 export function openInNewTab(url: string) {
   window.open(url, "_blank")?.focus();
@@ -10,9 +9,11 @@ export function copyToClipboard(text: string) {
 }
 
 export const getCookie = (key: string) => {
-  if (window) {
-    return cookie.get(key);
-  }
+  return window && getCookieFromBrowser(key);
+};
+
+export const getCookieFromBrowser = (key: string) => {
+  return cookie.get(key);
 };
 
 export const removeCookie = (key: string) => {

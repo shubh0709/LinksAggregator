@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 
 export default function Register() {
   const router = useRouter();
-  console.log("server url is : ", process.env.NEXT_PUBLIC_SERVER_URL);
 
   useEffect(() => {
     !!userAuthenticatedData() && router.push("/");

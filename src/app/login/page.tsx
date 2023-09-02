@@ -2,16 +2,11 @@
 import { useEffect, useState } from "react";
 import styles from "./login.module.css";
 import axios from "axios";
-import {
-  setAuthData,
-  setCookie,
-  setLocalStorage,
-  userAuthenticatedData,
-} from "../utils/util";
+import { setAuthData, userAuthenticatedData } from "../utils/util";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
-  console.log("server url is : ", process.env.NEXT_PUBLIC_SERVER_URL);
+  console.log("came to login.tsx file");
   const router = useRouter();
   useEffect(() => {
     !!userAuthenticatedData() && router.push("/");
