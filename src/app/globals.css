@@ -1,4 +1,8 @@
 @import "animate.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --raleway-font: initial; /* This is just a fallback value */
   --nunito-font: initial;

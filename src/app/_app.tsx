@@ -1,7 +1,7 @@
 // pages/_app.js
 import { useEffect } from "react";
 import { Inter, Roboto, Poppins, Raleway, Nunito } from "next/font/google";
-// import "tailwindcss/tailwind.css";
+import "tailwindcss/tailwind.css";
 import "../styles/global.css"; // Import your global styles
 
 const inter = Inter({ subsets: ["latin"] });
