@@ -318,7 +318,7 @@ export default function BlogPageOne() {
           <div className="mt-2 flex items-center justify-between">
             <div className="hidden md:block">
               <p>
-                showing <strong>1</strong> to <strong>10</strong> of{" "}
+                showing <strong>1</strong> to <strong>10</strong> of
                 <strong>20</strong> results
               </p>
             </div>

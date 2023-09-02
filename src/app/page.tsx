@@ -1,11 +1,22 @@
-import styles from "./page.module.css";
+import axios from "axios";
+import HomeClient from "./pageClient";
+import { AllCategories } from "./types/category";
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <h1 className="text-3xl font-bold underline ">Hello world!</h1>
-      </div>
-    </main>
-  );
+const listAllCategories = async (): Promise<AllCategories[]> => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/app/listCategories`
+    );
+
+    return response?.data ?? [];
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+export default async function Home() {
+  const allCategories = await listAllCategories();
+
+  return <HomeClient data={allCategories} />;
 }
