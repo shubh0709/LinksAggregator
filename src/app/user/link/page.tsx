@@ -2,6 +2,7 @@ import { getCookieFromBrowser } from "@/app/utils/util";
 import axios from "axios";
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function AddLink() {
   const [state, setState] = useState({
@@ -90,7 +91,8 @@ export default function AddLink() {
           onChange={handleChange("url")}
         ></input>
         <p className="mt-1 text-xs text-gray-500">*This field is required</p>
-
+        {/* <Checkbox />
+        <Checkbox /> */}
         <button
           type="submit"
           className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
